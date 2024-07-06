@@ -255,6 +255,21 @@ impl FieldData {
         self.humidity as f32 / 1000f32
     }
 
+    /// Temperature in degree celsius (°C)
+    pub fn temperature_celsius_raw(&self) -> i16 {
+        self.temperature
+    }
+
+    /// Pressure in hectopascal (hPA)
+    pub fn pressure_hpa_raw(&self) -> u32 {
+        self.pressure
+    }
+
+    /// Humidity in % relative humidity
+    pub fn humidity_percent_raw(&self) -> u32 {
+        self.humidity
+    }
+
     pub fn gas_resistance_ohm(&self) -> u32 {
         self.gas_resistance
     }
