@@ -141,13 +141,8 @@ impl Calculation {
         let var4: i32 = (var4 + temp_scaled * calibration_data.par_h7 as i32 / 100i32) >> 4i32;
         let var5: i32 = ((var3 >> 14i32) * (var3 >> 14i32)) >> 10i32;
         let var6: i32 = (var4 * var5) >> 1i32;
-        let mut calc_hum: i32 = (((var3 + var6) >> 10i32) * 1000i32) >> 12i32;
-        if calc_hum > 100000i32 {
-            calc_hum = 100000i32;
-        } else if calc_hum < 0i32 {
-            calc_hum = 0i32;
-        }
-        calc_hum as u32
+        let calc_hum: i32 = (((var3 + var6) >> 10i32) * 1000i32) >> 12i32;
+        calc_hum.clamp(0, 100000) as u32
     }
 
     /// Calculates and returns the gas resistance.
