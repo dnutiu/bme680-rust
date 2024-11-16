@@ -30,7 +30,7 @@ fn main() -> Result<(), anyhow::Error> {
     let profile_dur = dev.get_profile_duration(&settings.0)?;
     info!("Profile duration {:?}", profile_dur);
     info!("Setting sensor settings");
-    dev.set_sensor_settings(&mut delayer, settings)?;
+    dev.set_sensor_settings(&mut delayer, &settings)?;
     info!("Setting forced power modes");
     dev.set_sensor_mode(&mut delayer, PowerMode::ForcedMode)?;
 

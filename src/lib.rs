@@ -360,7 +360,7 @@ where
     pub fn set_sensor_settings(
         &mut self,
         delay: &mut D,
-        settings: Settings,
+        settings: &Settings,
     ) -> Result<(), anyhow::Error> {
         let (sensor_settings, desired_settings) = settings;
         let tph_sett = sensor_settings.temperature_settings;
