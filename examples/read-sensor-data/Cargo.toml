@@ -1,0 +1,12 @@
+[package]
+name = "read-sensor-data"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bme680 = {path = "../"}
+env_logger = "0.11.5"
+linux-embedded-hal = "0.4.0"
+anyhow = { version = "1.0.80" }
+log = "0.4"
+embedded-hal = "=1.0.0"

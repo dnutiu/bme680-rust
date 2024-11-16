@@ -13,10 +13,15 @@ To use this library, create a new project and add it as a dependency:
 bme680 = {git = "https://github.com/dnutiu/bme680-rust.git", version = "0.9.0"}
 ```
 
-# Alternative
-[drogue-bme680](https://github.com/drogue-iot/drogue-bme680)
+# Getting started on Raspberry Pi
 
-# Example getting started Linux
+Assuming that you have connected the sensor to the Raspberry PI's GPIO ports.
+
+Install required libraries for developing I2C.
+
+```bash
+sudo apt-get install build-essential libi2c-dev i2c-tools python-dev libffi-dev
+```
 
 Determine the I2C device path
 
@@ -39,4 +44,18 @@ pi@raspberrypi:~ $ i2cdetect -y 1
 50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 70: -- -- -- -- -- -- 76
+```
+
+The read-sensor-data from the examples folder is configured to use the I2C device `/dev/i2c-1` and the `0x76` address.
+
+To run the example, clone the repository and go to the examples' folder:
+
+```bash
+git clone https://github.com/dnutiu/bme680-rust.git && cd bme680-rust/examples/read-sensor-data
+```
+Then run the example:
+
+```bash
+export RUST_LOG=info
+cargo run
 ```
